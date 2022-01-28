@@ -2,7 +2,7 @@
 	var request = new XMLHttpRequest();
 
 	// Open a new connection, using the GET request on the URL endpoint
-	request.open("GET", "http://localhost:4000/?id=0&password=hello%20world", true);
+	request.open("GET", "https://forum-app-api-stef-the.vercel.app/api/login?id=0&pass=helloworld", true);
 
 	request.onload = function () {
 		var data = JSON.parse(this.response);
