@@ -1,15 +1,26 @@
 <script>
-	var request = new XMLHttpRequest();
+	var url = "http://0.0.0.0:3000/api/login?id=0&pass=helloworld";
 
-	// Open a new connection, using the GET request on the URL endpoint
-	request.open("GET", "https://forum-app-api-stef-the.vercel.app/api/login?id=0&pass=helloworld", true);
+	var xhr = new XMLHttpRequest();
+	xhr.open("POST", url);
 
-	request.onload = function () {
-		var data = JSON.parse(this.response);
-		console.log(data);
-	};
+	xhr.setRequestHeader("Accept", "application/json");
+	xhr.setRequestHeader("Content-Type", "application/json");
 
-	request.send();
+	xhr.onreadystatechange = function () {
+	if (xhr.readyState === 4) {
+		console.log(xhr.responseText);
+	}};
+
+	var data = `{
+	"Id": 78912,
+	"Customer": "Jason Sweet",
+	"Quantity": 1,
+	"Price": 18.00
+	}`;
+
+	console.log(xhr.send(data));
+
 </script>
 
 <main>
